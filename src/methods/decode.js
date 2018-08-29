@@ -6,6 +6,7 @@ import {invalidReferenceCodePoints} from "../utils/invalid-reference-code-points
 import contains from "../utils/constains";
 import {decodeMap} from "../map/decode-map";
 import {decodeMapLegacy} from "../map/decode-map-legacy";
+import {regexInvalidEntity} from "../regex/regex-invalid-entry";
 
 
 function codePointToSymbol(codePoint, strict) {

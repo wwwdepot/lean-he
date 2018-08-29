@@ -2,7 +2,7 @@ import encode from "./methods/encode";
 import decode from "./methods/decode";
 import escape from "./methods/escape";
 
-const leanHe = {
+const lean_he = {
 	'version': '2.0.0',
 	'encode': encode,
 	'decode': decode,
@@ -10,4 +10,4 @@ const leanHe = {
 	'unescape': decode
 };
 
-export default leanHe;
+export default lean_he;
