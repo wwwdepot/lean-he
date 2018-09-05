@@ -1,7 +1,8 @@
 # lean-he
 
 _lean-he_ (for “HTML entities”) is a robust HTML entity encoder/decoder written in JavaScript. It supports [all standardized named character references as per HTML](https://html.spec.whatwg.org/multipage/syntax.html#named-character-references), handles [ambiguous ampersands](https://mathiasbynens.be/notes/ambiguous-ampersands) and other edge cases [just like a browser would](https://html.spec.whatwg.org/multipage/syntax.html#tokenizing-character-references), has an extensive test suite, and — contrary to many other JavaScript solutions — _lean-he_ handles astral Unicode symbols just fine. [An online demo is available.](https://mothereff.in/html-entities)
-It is forked from [he](https://github.com/mathiasbynens/he).
+
+**It is forked from [he](https://github.com/mathiasbynens/he) with minute changes to make it leaner and all thanks to it's author.**
 
 ## Installation
 
