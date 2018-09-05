@@ -1,4 +1,5 @@
-# lean-he [![codecov](https://codecov.io/gh/adnaan1703/lean-he/branch/master/graph/badge.svg)](https://codecov.io/gh/adnaan1703/lean-he) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) 
+# lean-he [![codecov](https://codecov.io/gh/adnaan1703/lean-he/branch/master/graph/badge.svg)](https://codecov.io/gh/adnaan1703/lean-he) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)
+
 
 _lean-he_ (for “HTML entities”) is a robust HTML entity encoder/decoder written in JavaScript. It supports [all standardized named character references as per HTML](https://html.spec.whatwg.org/multipage/syntax.html#named-character-references), handles [ambiguous ampersands](https://mathiasbynens.be/notes/ambiguous-ampersands) and other edge cases [just like a browser would](https://html.spec.whatwg.org/multipage/syntax.html#tokenizing-character-references), has an extensive test suite, and — contrary to many other JavaScript solutions — _lean-he_ handles astral Unicode symbols just fine.
  You can get a hint of how it works from [an online demo is available.](https://mothereff.in/html-entities) created by the same creator of original [he](https://github.com/mathiasbynens/he) library.
@@ -295,7 +296,8 @@ Thanks to [Mathias Bynens](https://www.npmjs.com/~mathias) for creating [he](htt
 
 | [![twitter/adnaan1703](https://en.gravatar.com/userimage/144283979/c8970eb942f95c327ad8f29c8fc91378.jpg?size=70)](https://twitter.com/adnaan1703 "Follow @adnaan1703 on Twitter") |
 |---|
-| [Adnaan Ahmed 'KonL'](https://github.com/adnaan1703/) |
+|[![GitHub followers](https://img.shields.io/github/followers/espadrine.svg?style=social&label=Follow)](https://github.com/adnaan1703) |
+| [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/adnaan1703) |
 
 ## License
 
