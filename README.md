@@ -1,7 +1,11 @@
 # lean-he
 
-_lean-he_ (for “HTML entities”) is a robust HTML entity encoder/decoder written in JavaScript. It supports [all standardized named character references as per HTML](https://html.spec.whatwg.org/multipage/syntax.html#named-character-references), handles [ambiguous ampersands](https://mathiasbynens.be/notes/ambiguous-ampersands) and other edge cases [just like a browser would](https://html.spec.whatwg.org/multipage/syntax.html#tokenizing-character-references), has an extensive test suite, and — contrary to many other JavaScript solutions — _lean-he_ handles astral Unicode symbols just fine. [An online demo is available.](https://mothereff.in/html-entities)
-It is forked from [he](https://github.com/mathiasbynens/he).
+_lean-he_ (for “HTML entities”) is a robust HTML entity encoder/decoder written in JavaScript. It supports [all standardized named character references as per HTML](https://html.spec.whatwg.org/multipage/syntax.html#named-character-references), handles [ambiguous ampersands](https://mathiasbynens.be/notes/ambiguous-ampersands) and other edge cases [just like a browser would](https://html.spec.whatwg.org/multipage/syntax.html#tokenizing-character-references), has an extensive test suite, and — contrary to many other JavaScript solutions — _lean-he_ handles astral Unicode symbols just fine.
+ You can get a hint of how it works from [an online demo is available.](https://mothereff.in/html-entities) created by the same creator of original [he](https://github.com/mathiasbynens/he) library.
+ This was created keeping bundling in mind. It will help in creating leaner bundle by using only the specific function developers needs, like if a use case requires only encoding then using `lean-he/encode` 
+ will result in only encode file to be bundle leaving rest of the code hence creating leaner bundle.
+
+**It is forked from [he](https://github.com/mathiasbynens/he) with minute changes to make it leaner and all thanks to it's author.**
 
 ## Installation
 
@@ -37,7 +41,7 @@ load('lean-he.js');
 
 This function takes a string of text and encodes (by default) any symbols that aren’t printable ASCII symbols and `&`, `<`, `>`, `"`, `'`, and `` ` ``, replacing them with character references.
 
->Can also use `var encode = require('encode');` instead to reduce the imported file size if the only need is to encode.
+>Can also use `var encode = require('lean-he/encode');` instead to reduce the imported file size if the only need is to encode.
 
 ```js
 lean_he.encode('foo © bar ≠ baz 𝌆 qux');
@@ -185,7 +189,7 @@ lean_he.encode('foo © bar ≠ baz 𝌆 qux');
 
 This function takes a string of HTML and decodes any named and numerical character references in it using [the algorithm described in section 12.2.4.69 of the HTML spec](https://html.spec.whatwg.org/multipage/syntax.html#tokenizing-character-references).
 
->Can also use `var decode = require('decode');` instead to reduce the imported file size if the only need is to encode.
+>Can also use `var decode = require('lean-he/decode');` instead to reduce the imported file size if the only need is to decode.
 
 ```js
 lean_he.decode('foo &copy; bar &ne; baz &#x1D306; qux');
@@ -259,7 +263,7 @@ lean_he.decode('foo&ampbar');
 
 This function takes a string of text and escapes it for use in text contexts in XML or HTML documents. Only the following characters are escaped: `&`, `<`, `>`, `"`, `'`, and `` ` ``.
 
->Can also use `var escape = require('escape');` instead to reduce the imported file size if the only need is to encode.
+>Can also use `var escape = require('lean-he/escape');` instead to reduce the imported file size if the only need is to escape.
 
 ```js
 lean_he.escape('<img src=\'x\' onerror="prompt(1)">');
@@ -270,7 +274,7 @@ lean_he.escape('<img src=\'x\' onerror="prompt(1)">');
 
 `lean_he.unescape` is an alias for `lean_he.decode`. It takes a string of HTML and decodes any named and numerical character references in it.
 
->Can also use `var unescape = require('unescape');` instead to reduce the imported file size if the only need is to encode.
+>Can also use `var unescape = require('lean-he/unescape');` instead to reduce the imported file size if the only need is to unescape.
 
 ## Unit tests & code coverage
 
