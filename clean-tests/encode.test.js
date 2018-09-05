@@ -13,7 +13,6 @@ function forEach(array, fn) {
 
 describe('encode', function () {
 
-
 	test('`he.encode.options.useNamedReferences` is exposed and `false` by default', () => {
 		expect(he.encode.options.useNamedReferences).toStrictEqual(false);
 	});
