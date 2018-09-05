@@ -3,33 +3,29 @@ import {officialData} from "./data/official-data";
 
 const he = lean_he;
 
-describe('decode', () => {
-
-	function forOwn(object, fn) {
-		for (let key in object) {
-			if (object.hasOwnProperty(key)) {
-				fn(key, object[key]);
-			}
+function forOwn(object, fn) {
+	for (let key in object) {
+		if (object.hasOwnProperty(key)) {
+			fn(key, object[key]);
 		}
 	}
+}
 
-	forOwn(officialData, function (key, value) {
-		const encoded = `a ${key} b`;
-		const decoded = `a ${value.characters} b`;
-		const description = `codepoints ${value.codepoints.join(',')}`;
-		test(`Decoding ${description}`, () => {
+describe('decode', () => {
+	test(`Decoding`, () => {
+		forOwn(officialData, function (key, value) {
+			const encoded = `a ${key} b`;
+			const decoded = `a ${value.characters} b`;
 			expect(he.decode(encoded)).toEqual(decoded);
 		})
 	});
 
-	forOwn(officialData, function (key, value) {
-		const decoded = `a ${value.characters} b`;
-		const description = `codepoints ${value.codepoints.join(',')}`;
-		test(`decode(encode(decoded)) ${description}`, () => {
+	test(`decode(encode(decoded))`, () => {
+		forOwn(officialData, function (key, value) {
+			const decoded = `a ${value.characters} b`;
 			expect(he.decode(he.encode(decoded))).toEqual(decoded)
 		})
 	});
-
 
 	test('Only decode once 1', () => {
 		expect(he.decode('&amp;amp;amp;')).toEqual('&amp;amp;')
@@ -316,7 +312,5 @@ describe('decode', () => {
 	test("Decoding `&#Z` in error-tolerant mode", () => {
 		expect(he.decode("&#Z", {strict: !1})).toEqual("&#Z");
 	});
-
-
 });
 
