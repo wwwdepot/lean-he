@@ -1,4 +1,4 @@
-import lean_he from "../src/lean-he";
+import lean_he from "../lean-he";
 import {officialData} from "./data/official-data";
 
 const he = lean_he;

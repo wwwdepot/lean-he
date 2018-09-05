@@ -1,6 +1,6 @@
-import encode from "./methods/encode";
-import decode from "./methods/decode";
-import escape from "./methods/escape";
+import encode from "./src/methods/encode";
+import decode from "./src/methods/decode";
+import escape from "./src/methods/escape";
 
 const lean_he = {
 	'version': '2.0.0',
