@@ -13,7 +13,7 @@ _lean-he_ (for “HTML entities”) is a robust HTML entity encoder/decoder writ
 Via [npm](https://www.npmjs.com/):
 
 ```bash
-npm install he
+npm install lean-he
 ```
 
 Via [Bower](http://bower.io/):
