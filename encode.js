@@ -1,3 +1,5 @@
-import encode from "./lib/methods/encode";
+const _encode = require('./lib/methods/encode');
+const encode = _interopRequireDefault(_encode);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-export default encode;
+module.exports = encode.default;

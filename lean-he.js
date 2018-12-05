@@ -1,6 +1,6 @@
-import encode from "./lib/methods/encode";
-import decode from "./lib/methods/decode";
-import escape from "./lib/methods/escape";
+const encode = require('./encode');
+const decode = require('./decode');
+const escape = require('./escape');
 
 const lean_he = {
 	'version': '2.0.0',
@@ -10,4 +10,4 @@ const lean_he = {
 	'unescape': decode
 };
 
-export default lean_he;
+module.exports = lean_he;
