@@ -1,3 +1,3 @@
-import encode from "./src/methods/encode";
+import encode from "./lib/methods/encode";
 
 export default encode;

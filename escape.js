@@ -1,3 +1,3 @@
-import escape from "./src/methods/escape";
+import escape from "./lib/methods/escape";
 
 export default escape;

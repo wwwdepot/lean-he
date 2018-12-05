@@ -1,3 +1,3 @@
-import decode from "./src/methods/decode";
+import decode from "./lib/methods/decode";
 
 export default decode;

@@ -27,9 +27,11 @@
   "bugs": "https://github.com/adnaan1703/lean-he/issues",
   "scripts": {
     "test": "jest && npm run codecov",
-    "codecov": "codecov -f coverage/coverage-final.json"
+    "codecov": "codecov -f coverage/coverage-final.json",
+    "build": "babel src -d lib"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "codecov": "^3.1.0",
     "jest": "^23.5.0"
