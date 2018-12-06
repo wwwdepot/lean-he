@@ -1,4 +1,4 @@
-import lean_he from "../lean-he";
+import lean_he from "../leanHe";
 import {encodeData} from "./data/encode-data";
 
 const he = lean_he;

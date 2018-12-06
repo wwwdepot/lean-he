@@ -1,4 +1,4 @@
-import lean_he from "../lean-he";
+import lean_he from "../leanHe";
 
 const he = lean_he;
 
