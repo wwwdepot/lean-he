@@ -1,0 +1,8 @@
+# ingnoring source code
+src/
+
+# test coverage
+coverage/
+
+# codecov token
+/codecov.yml 
