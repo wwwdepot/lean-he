@@ -38,21 +38,21 @@ load('lean-he.js');
 
 ## API
 
-### `lean_he.encode(text, options)`
+### `leanHe.encode(text, options)`
 
 This function takes a string of text and encodes (by default) any symbols that aren’t printable ASCII symbols and `&`, `<`, `>`, `"`, `'`, and `` ` ``, replacing them with character references.
 
->Can also use `var encode = require('lean-he/encode');` instead to reduce the imported file size if the only need is to encode.
+>Can also use `var encode = require('leanHe/encode');` instead to reduce the imported file size if the only need is to encode.
 
 ```js
-lean_he.encode('foo © bar ≠ baz 𝌆 qux');
+leanHe.encode('foo © bar ≠ baz 𝌆 qux');
 // → 'foo &#xA9; bar &#x2260; baz &#x1D306; qux'
 ```
 
 As long as the input string contains [allowed code points](https://html.spec.whatwg.org/multipage/parsing.html#preprocessing-the-input-stream) only, the return value of this function is always valid HTML. Any [(invalid) code points that cannot be represented using a character reference](https://html.spec.whatwg.org/multipage/syntax.html#table-charref-overrides) in the input are not encoded:
 
 ```js
-lean_he.encode('foo \0 bar');
+leanHe.encode('foo \0 bar');
 // → 'foo \0 bar'
 ```
 
@@ -68,17 +68,17 @@ The default value for the `useNamedReferences` option is `false`. This means tha
 
 ```js
 // Using the global default setting (defaults to `false`):
-lean_he.encode('foo © bar ≠ baz 𝌆 qux');
+leanHe.encode('foo © bar ≠ baz 𝌆 qux');
 // → 'foo &#xA9; bar &#x2260; baz &#x1D306; qux'
 
 // Passing an `options` object to `encode`, to explicitly disallow named references:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux', {
+leanHe.encode('foo © bar ≠ baz 𝌆 qux', {
   'useNamedReferences': false
 });
 // → 'foo &#xA9; bar &#x2260; baz &#x1D306; qux'
 
 // Passing an `options` object to `encode`, to explicitly allow named references:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux', {
+leanHe.encode('foo © bar ≠ baz 𝌆 qux', {
   'useNamedReferences': true
 });
 // → 'foo &copy; bar &ne; baz &#x1D306; qux'
@@ -90,23 +90,23 @@ The default value for the `decimal` option is `false`. If the option is enabled,
 
 ```js
 // Using the global default setting (defaults to `false`):
-lean_he.encode('foo © bar ≠ baz 𝌆 qux');
+leanHe.encode('foo © bar ≠ baz 𝌆 qux');
 // → 'foo &#xA9; bar &#x2260; baz &#x1D306; qux'
 
 // Passing an `options` object to `encode`, to explicitly disable decimal escapes:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux', {
+leanHe.encode('foo © bar ≠ baz 𝌆 qux', {
   'decimal': false
 });
 // → 'foo &#xA9; bar &#x2260; baz &#x1D306; qux'
 
 // Passing an `options` object to `encode`, to explicitly enable decimal escapes:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux', {
+leanHe.encode('foo © bar ≠ baz 𝌆 qux', {
   'decimal': true
 });
 // → 'foo &#169; bar &#8800; baz &#119558; qux'
 
 // Passing an `options` object to `encode`, to explicitly allow named references and decimal escapes:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux', {
+leanHe.encode('foo © bar ≠ baz 𝌆 qux', {
   'useNamedReferences': true,
   'decimal': true
 });
@@ -119,17 +119,17 @@ The default value for the `encodeEverything` option is `false`. This means that 
 
 ```js
 // Using the global default setting (defaults to `false`):
-lean_he.encode('foo © bar ≠ baz 𝌆 qux');
+leanHe.encode('foo © bar ≠ baz 𝌆 qux');
 // → 'foo &#xA9; bar &#x2260; baz &#x1D306; qux'
 
 // Passing an `options` object to `encode`, to explicitly encode all symbols:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux', {
+leanHe.encode('foo © bar ≠ baz 𝌆 qux', {
   'encodeEverything': true
 });
 // → '&#x66;&#x6F;&#x6F;&#x20;&#xA9;&#x20;&#x62;&#x61;&#x72;&#x20;&#x2260;&#x20;&#x62;&#x61;&#x7A;&#x20;&#x1D306;&#x20;&#x71;&#x75;&#x78;'
 
 // This setting can be combined with the `useNamedReferences` option:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux', {
+leanHe.encode('foo © bar ≠ baz 𝌆 qux', {
   'encodeEverything': true,
   'useNamedReferences': true
 });
@@ -142,17 +142,17 @@ The default value for the `strict` option is `false`. This means that `encode()`
 
 ```js
 // Using the global default setting (defaults to `false`, i.e. error-tolerant mode):
-lean_he.encode('\x01');
+leanHe.encode('\x01');
 // → '&#x1;'
 
 // Passing an `options` object to `encode`, to explicitly enable error-tolerant mode:
-lean_he.encode('\x01', {
+leanHe.encode('\x01', {
   'strict': false
 });
 // → '&#x1;'
 
 // Passing an `options` object to `encode`, to explicitly enable strict mode:
-lean_he.encode('\x01', {
+leanHe.encode('\x01', {
   'strict': true
 });
 // → Parse error
@@ -163,7 +163,7 @@ lean_he.encode('\x01', {
 The default value for the `allowUnsafeSymbols` option is `false`. This means that characters that are unsafe for use in HTML content (`&`, `<`, `>`, `"`, `'`, and `` ` ``) will be encoded. When set to `true`, only non-ASCII characters will be encoded. If the `encodeEverything` option is set to `true`, this option will be ignored.
 
 ```js
-lean_he.encode('foo © and & ampersand', {
+leanHe.encode('foo © and & ampersand', {
   'allowUnsafeSymbols': true
 });
 // → 'foo &#xA9; and & ampersand'
@@ -175,14 +175,14 @@ The global default setting can be overridden by modifying the `he.encode.options
 
 ```js
 // Read the global default setting:
-lean_he.encode.options.useNamedReferences;
+leanHe.encode.options.useNamedReferences;
 // → `false` by default
 
 // Override the global default setting:
-lean_he.encode.options.useNamedReferences = true;
+leanHe.encode.options.useNamedReferences = true;
 
 // Using the global default setting, which is now `true`:
-lean_he.encode('foo © bar ≠ baz 𝌆 qux');
+leanHe.encode('foo © bar ≠ baz 𝌆 qux');
 // → 'foo &copy; bar &ne; baz &#x1D306; qux'
 ```
 
@@ -193,7 +193,7 @@ This function takes a string of HTML and decodes any named and numerical charact
 >Can also use `var decode = require('lean-he/decode');` instead to reduce the imported file size if the only need is to decode.
 
 ```js
-lean_he.decode('foo &copy; bar &ne; baz &#x1D306; qux');
+leanHe.decode('foo &copy; bar &ne; baz &#x1D306; qux');
 // → 'foo © bar ≠ baz 𝌆 qux'
 ```
 
@@ -205,17 +205,17 @@ The default value for the `isAttributeValue` option is `false`. This means that 
 
 ```js
 // Using the global default setting (defaults to `false`, i.e. HTML text context):
-lean_he.decode('foo&ampbar');
+leanHe.decode('foo&ampbar');
 // → 'foo&bar'
 
 // Passing an `options` object to `decode`, to explicitly assume an HTML text context:
-lean_he.decode('foo&ampbar', {
+leanHe.decode('foo&ampbar', {
   'isAttributeValue': false
 });
 // → 'foo&bar'
 
 // Passing an `options` object to `decode`, to explicitly assume an HTML attribute value context:
-lean_he.decode('foo&ampbar', {
+leanHe.decode('foo&ampbar', {
   'isAttributeValue': true
 });
 // → 'foo&ampbar'
@@ -227,17 +227,17 @@ The default value for the `strict` option is `false`. This means that `decode()`
 
 ```js
 // Using the global default setting (defaults to `false`, i.e. error-tolerant mode):
-lean_he.decode('foo&ampbar');
+leanHe.decode('foo&ampbar');
 // → 'foo&bar'
 
 // Passing an `options` object to `decode`, to explicitly enable error-tolerant mode:
-lean_he.decode('foo&ampbar', {
+leanHe.decode('foo&ampbar', {
   'strict': false
 });
 // → 'foo&bar'
 
 // Passing an `options` object to `decode`, to explicitly enable strict mode:
-lean_he.decode('foo&ampbar', {
+leanHe.decode('foo&ampbar', {
   'strict': true
 });
 // → Parse error
@@ -249,31 +249,31 @@ The global default settings for the `decode` function can be overridden by modif
 
 ```js
 // Read the global default setting:
-lean_he.decode.options.isAttributeValue;
+leanHe.decode.options.isAttributeValue;
 // → `false` by default
 
 // Override the global default setting:
-lean_he.decode.options.isAttributeValue = true;
+leanHe.decode.options.isAttributeValue = true;
 
 // Using the global default setting, which is now `true`:
-lean_he.decode('foo&ampbar');
+leanHe.decode('foo&ampbar');
 // → 'foo&ampbar'
 ```
 
-### `lean_he.escape(text)`
+### `leanHe.escape(text)`
 
 This function takes a string of text and escapes it for use in text contexts in XML or HTML documents. Only the following characters are escaped: `&`, `<`, `>`, `"`, `'`, and `` ` ``.
 
 >Can also use `var escape = require('lean-he/escape');` instead to reduce the imported file size if the only need is to escape.
 
 ```js
-lean_he.escape('<img src=\'x\' onerror="prompt(1)">');
+leanHe.escape('<img src=\'x\' onerror="prompt(1)">');
 // → '&lt;img src=&#x27;x&#x27; onerror=&quot;prompt(1)&quot;&gt;'
 ```
 
-### `lean_he.unescape(html, options)`
+### `leanHe.unescape(html, options)`
 
-`lean_he.unescape` is an alias for `lean_he.decode`. It takes a string of HTML and decodes any named and numerical character references in it.
+`leanHe.unescape` is an alias for `leanHe.decode`. It takes a string of HTML and decodes any named and numerical character references in it.
 
 >Can also use `var unescape = require('lean-he/unescape');` instead to reduce the imported file size if the only need is to unescape.
 
