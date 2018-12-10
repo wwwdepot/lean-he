@@ -42,7 +42,7 @@ load('lean-he.js');
 
 This function takes a string of text and encodes (by default) any symbols that aren’t printable ASCII symbols and `&`, `<`, `>`, `"`, `'`, and `` ` ``, replacing them with character references.
 
->Can also use `var encode = require('leanHe/encode');` instead to reduce the imported file size if the only need is to encode.
+>Can also use `var encode = require('lean-he/encode');` instead to reduce the imported file size if the only need is to encode.
 
 ```js
 leanHe.encode('foo © bar ≠ baz 𝌆 qux');
