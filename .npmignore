@@ -6,3 +6,10 @@ coverage/
 
 # codecov token
 /codecov.yml 
+
+#babel config file
+/.babelrc
+
+# removing test related stuffs.
+clean-tests/
+/jest.config.js
