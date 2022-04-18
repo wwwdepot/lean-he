@@ -3,7 +3,7 @@
   "version": "2.1.2",
   "description": "A robust HTML entities encoder/decoder with full Unicode support.",
   "homepage": "https://github.com/adnaan1703/lean-he",
-  "main": "lean-he.js",
+  "main": "leanHe.js",
   "keywords": [
     "string",
     "entities",
