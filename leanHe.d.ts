@@ -1,4 +1,4 @@
-interface Options {
+interface EncodeOptions {
   /** default `false` */
   decimal?: boolean;
   /** default `false` */
@@ -17,7 +17,8 @@ interface DecodeOptions {
   /** default `false` */
   strict?: boolean;
 }
-export function escape(text: string, options?: Options): string;
-export function encode(text: string, options?: Options): string;
+
+export function escape(text: string): string;
+export function encode(text: string, options?: EncodeOptions): string;
 export function decode(html: string, options?: DecodeOptions): string;
 export function unescape(html: string, options?: DecodeOptions): string;
